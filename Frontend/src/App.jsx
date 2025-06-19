@@ -10,7 +10,8 @@ import { BrowserRouter as Router, Routes } from "react-router-dom";
 function App() {
 
 
-  return (
+  returrn
+  (
     <Router>
       <Routes>
         <Route path='/' element = {<CourseSyllabus />} />
