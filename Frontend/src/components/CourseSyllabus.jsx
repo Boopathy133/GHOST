@@ -78,9 +78,11 @@
 
 import React, { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 export default function ExamStrategyPage() {
   const [selectedGrade, setSelectedGrade] = useState("6th");
+  const navigate = useNavigate()
 
   const subjectsByGrade = {
     "6th": ["Tamil", "English", "Mathematics", "Science", "Social Science", "Additional Theory"],
@@ -91,6 +93,11 @@ export default function ExamStrategyPage() {
     "11th": ["Tamil", "English", "Mathematics", "Physics", "Chemistry", "Biology"],
     "12th": ["Tamil", "English", "Mathematics", "Physics", "Chemistry", "Computer Science"],
   };
+
+
+  const handleCourseClick = () => {
+    navigate(`/blogs/${subject}`)
+  }
 
   return (
     <>
@@ -148,7 +155,7 @@ export default function ExamStrategyPage() {
               >
                 <div className="flex items-center gap-3">
                   <span>📘</span>
-                  <span className="font-medium text-blue-700">{subject}</span>
+                  <span onClick={() => handleCourseClick(subject)} className="font-medium text-blue-700">{subject}</span>
                 </div>
                 <span className="text-blue-500">➔</span>
               </div>
